@@ -2,6 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.restful.mapper.BoardMapper">
 	<select id="boardSelect" resultType="com.restful.domain.BoardVO">
-		select * from board
+		SELECT * FROM BOARD
 	</select>
+	
+	<insert id="boardInsert" parameterType="com.restful.domain.BoardVO">
+		INSERT INTO board(name, title, content, date) values(#{name},#{title},#{content},CURRENT_TIMESTAMP)
+	</insert>
+	
+	<select id="boardView" resultType="com.restful.domain.BoardVO" parameterType="int">
+		SELECT * FROM board where id = #{id}
+	</select>
+	
+	<update id="boardUpdate" parameterType="com.restful.domain.BoardVO">
+		UPDATE board SET name = #{name}, title = #{title}, content = #{content} where id = #{id}
+	</update>
+	
+	<delete id="boardDelete" parameterType="int">
+		DELETE from board where id = #{id}
+	</delete>
 </mapper>

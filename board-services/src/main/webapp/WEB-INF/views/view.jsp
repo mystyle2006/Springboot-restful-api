@@ -10,40 +10,44 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
-<title>INDEX</title>
+<title>View</title>
 </head>
 <body>
 <div class="container">
-	<h1 class="display-3">List</h1>
+	<h1 class="display-3">View</h1>
+	
+	<c:set var="b" value="${board}" />
+	
+	<div class="card">
+		<div class="card-body">
+			<b>Title :</b> <c:out value="${b.title}" />
+		</div>
+	</div>
+	<p />
+	<div class="card">
+		<div class="card-body">
+			<b>Writer :</b> <c:out value="${b.name}" />
+		</div>
+	</div>
+	<p />
+	<div class="card">
+		<div class="card-body">
+			<b>Date :</b> <c:out value="${b.date}" />
+		</div>
+	</div>
+	<p />
+	<div class="card">
+		<h4 class="card-header">Content</h4>
 		
-	<table class="table">
-	  <thead>
-	    <tr>
-	      <th scope="col">#</th>
-	      <th scope="col">Title</th>
-	      <th scope="col">Writer</th>
-	      <th scope="col">Date</th>
-	      <th scope="col">View</th>
-	      <th scope="col">Edit</th>
-	      <th scope="col">Delete</th>
-	    </tr>
-	  </thead>
-	  <tbody>
-	  	<c:forEach items="${list}" var="ls">
-	    <tr>
-	      <th scope="row">${ls.id}</th>
-	      <td>${ls.title}</td>
-	      <td>${ls.name}</td>
-	      <td>${ls.date }</td>
-	      <td><button type="button" class="btn btn-primary" onclick="location.href='/view/${ls.id}'">View</button></td>
-	      <td><button type="button" class="btn btn-primary" onclick="location.href='/edit/${ls.id}'">Edit</button></td>
-	      <td><button type="button" class="btn btn-danger" onclick="location.href='/delete/${ls.id}'">Delete</button></td>
-	    </tr>
-	    </c:forEach>
-	  </tbody>
-	</table>
+		<div class="card-body">
+			<c:out value="${b.content}" />
+		</div>
+	</div>
+	<p />
 	<div class="text-right">
-		<button type="button" class="btn btn-warning" onclick="location.href='/write'">Write</button>
+		<button type="button" class="btn btn-secondary" onclick="location.href='/edit/${b.id}'">Edit</button>
+		<button type="button" class="btn btn-danger" onclick="location.href='/delete/${b.id}'">Delete</button>
+		<button type="button" class="btn btn-secondary" onclick="location.href='/'">List</button>
 	</div>
 </div>
 

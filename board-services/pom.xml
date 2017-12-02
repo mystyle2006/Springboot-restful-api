@@ -73,7 +73,7 @@
 		<!-- ::END_MYBATIS -->
 		
 		<!-- ::START JSTL tag lib -->
-	    <dependency>
+	    <!-- <dependency>
 			<groupId>javax.servlet.jsp.jstl</groupId>
 			<artifactId>javax.servlet.jsp.jstl-api</artifactId>
 			<version>1.2.1</version>
@@ -82,7 +82,7 @@
 			<groupId>taglibs</groupId>
 			<artifactId>standard</artifactId>
 			<version>1.1.2</version>
-	    </dependency>
+	    </dependency> -->
 		<!-- ::END JSTL tag lib -->
 		
 		<!-- ::START Tomcat -->
@@ -97,6 +97,11 @@
 			<artifactId>jstl</artifactId>
 		</dependency>
 		<!-- ::END Tomcat -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+			<version>1.2.4</version>
+		</dependency>
 	</dependencies>
 
 	<build>
